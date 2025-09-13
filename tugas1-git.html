@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Saya</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        margin: 0 auto;
+      }
+      td {
+        padding: 15px;
+        vertical-align: middle;
+      }
+      .section {
+        border-bottom: 4px solid #000;
+        padding: 20px 0;
+      }
+      /* Menu */
+      .menu td {
+        font-weight: bold;
+      }
+      .menu a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: black;
+      }
+      .menu a:hover {
+        text-decoration: underline;
+      }
+      /* Hero */
+      .hero-img {
+        width: 600px;
+        height: 400px;
+        background: #ddd;
+        display: inline-block;
+      }
+      button {
+        padding: 10px 15px;
+        background: #333;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #555;
+      }
+      /* About */
+      .about-box {
+        border: 1px solid #ccc;
+        padding: 20px;
+        width: 150px;
+      }
+      /* Portfolio */
+      .card {
+        border: 1px solid #ccc;
+        width: 350px;
+        padding: 10px;
+        display: inline-block;
+      }
+      .card-img {
+        width: 350px;
+        height: 200px;
+        background: #ddd;
+        margin-bottom: 10px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Section 1: Menu -->
+    <table class="section menu">
+      <tr>
+        <td align="left">Brand</td>
+        <td align="right">
+          <a href="#">Home</a>
+          <a href="#">Biodata</a>
+          <a href="#">Portofolio</a>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Section 2: Hero -->
+    <table class="section">
+      <tr>
+        <td width="50%" align="left">
+          <h1>Selamat Datang di Website Saya</h1>
+          <p>
+            Ini adalah contoh header dengan dua kolom. Kolom kiri berisi teks
+            seperti ini.
+          </p>
+          <button>Pelajari Lebih Lanjut</button>
+        </td>
+        <td width="50%" align="center">
+          <div class="hero-img">600 x 400</div>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Section 3: About Me -->
+    <table class="section">
+      <tr>
+        <td colspan="3">
+          <h2>About Me</h2>
+          <p>A brief introduction about myself</p>
+        </td>
+      </tr>
+      <tr>
+        <td class="about-box">Full Name</td>
+        <td class="about-box">Education</td>
+        <td class="about-box">Pekerjaan</td>
+      </tr>
+      <tr>
+        <td class="about-box">Contact</td>
+        <td class="about-box">Hobi</td>
+        <td class="about-box">Alamat</td>
+      </tr>
+    </table>
+
+    <!-- Section 4: Portofolio -->
+    <table class="section">
+      <tr>
+        <td colspan="3">
+          <h2>Portofolio</h2>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="card">
+            <div class="card-img">350 x 200</div>
+            <h3>Proyek 1</h3>
+            <p>Deskripsi proyek 1.</p>
+          </div>
+        </td>
+        <td>
+          <div class="card">
+            <div class="card-img">350 x 200</div>
+            <h3>Proyek 2</h3>
+            <p>Deskripsi proyek 2.</p>
+          </div>
+        </td>
+        <td>
+          <div class="card">
+            <div class="card-img">350 x 200</div>
+            <h3>Proyek 3</h3>
+            <p>Deskripsi proyek 3.</p>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
