@@ -2,84 +2,225 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Website Arya</title>
-    <link rel="shortcut icon" href="https://img.icons8.com/color/48/000000/html-5.png" type="image/png">
-    <link rel="stylesheet" href="css/style.css">
+    <link
+      rel="shortcut icon"
+      href="https://img.icons8.com/color/48/000000/html-5.png"
+      type="image/png"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <!-- Navbar -->
-    <header>
-      <h2>Brand</h2>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Biodata</a>
-        <a href="#">Portofolio</a>
-      </nav>
-    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold fs-4" href="#">Arya Wijaya</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio">Portofolio</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <!-- Hero -->
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Selamat Datang di Website Saya</h1>
-        <p>
-          Ini merupakan website yang saya buat untuk memenuhi tugas fundamental
-          HTML, CSS, dan Git.
-        </p>
-        <button>Pelajari Lebih Lanjut</button>
+    <section class="hero py-5 bg-light">
+      <div class="container d-flex flex-column flex-lg-row align-items-center">
+        <div class="hero-text me-lg-5 text-center text-lg-start">
+          <h1 class="fw-bold display-4 mb-3">
+            Hi, Saya <span class="text-primary">Arya Wijaya</span>
+          </h1>
+          <h2 class="fw-semibold mb-3 text-dark">
+            <span class="typing">Fullstack Developer</span>
+          </h2>
+          <p class="text-muted fs-5">
+            Membuat aplikasi modern berbasis web dengan teknologi terbaru, mulai
+            dari frontend, backend, hingga deployment.
+          </p>
+          <button
+            class="btn btn-primary btn-lg mt-3"
+            data-bs-toggle="modal"
+            data-bs-target="#infoModal"
+          >
+            Pelajari Lebih Lanjut
+          </button>
+        </div>
+        <img
+          src="images/foto arya.jpg"
+          class="img-fluid rounded shadow mt-4 mt-lg-0"
+          alt="Foto Profil"
+          style="max-width: 350px"
+        />
       </div>
-      <img src="images/foto arya.jpg" alt="Foto Profil" />
     </section>
 
     <!-- About -->
-    <section class="about">
-      <h2>About Me</h2>
-      <p>A brief introduction about myself</p>
-      <div class="about-grid">
-        <div class="about-box"><span class="tag">Name:</span> Arya Wijaya</div>
-        <div class="about-box"><span: class="tag">Education:</span:> D3 Teknologi Informasi</div>
-        <div class="about-box"><span: class="tag">Pekerjaan:</span:> Teknisi Fiber Optic</div>
-        <div class="about-box"><span: class="tag">Contact:</span:> Aryasokker23@gmail.com</div>
-        <div class="about-box"><span: class="tag">Hobi:</span:> Ngoding</div>
-        <div class="about-box"><span: class="tag">Alamat:</span:> Sampit, Kotawaringin Timur</div>
-        <div class="about-box"><span: class="tag">Stack:</span:> Laravel, FLask, Node JS, Golang</div>
+    <section id="about" class="py-5 bg-white text-center">
+      <div class="container">
+        <h2 class="text-primary fw-bold mb-3">About Me</h2>
+        <p class="text-muted mb-4">Perkenalan singkat tentang saya</p>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="border rounded p-3">
+              <span class="tag">Name:</span> <strong>Arya Wijaya</strong>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="border rounded p-3">
+              <span class="tag">Education:</span>
+              <strong>D3 Teknologi Informasi</strong>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="border rounded p-3">
+              <span class="tag">Job:</span>
+              <strong>Teknisi Fiber Optic</strong>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="border rounded p-3">
+              <span class="tag">Contact:</span>
+              <strong>Aryasokker23@gmail.com</strong>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="border rounded p-3">
+              <span class="tag">Hobby:</span> <strong>Ngoding</strong>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="border rounded p-3">
+              <span class="tag">Address:</span>
+              <strong>Sampit, Kotawaringin Timur</strong>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="border rounded p-3">
+              <span class="tag">Stack:</span>
+              <strong
+                ><img src="icons/laravel_logo_icon_145117.svg" alt="" /><img
+                  src="icons/nodejs_icon_135360.svg"
+                />
+              </strong>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Portfolio -->
-    <section class="portfolio">
-      <h2>Portofolio</h2>
-      <div class="portfolio-grid">
-        <div class="card">
-          <img
-            src="/images/finance-tracker.png"
-            alt="Finance Tracker"
-          />
-          <h3>Aplikasi Finance Tracker</h3>
-          <p>Web aplikasi untuk mengelola keuangan yang saya buat secara pribadi dengan menggunakan stack python, flask, tailwind css dan sqlite</p>
-        </div>
-        <div class="card">
-          <img
-            src="/images/manajemen-barang.png"
-            alt="Manajemen Barang"
-          />
-          <h3>WebApp Manajemen Barang</h3>
-          <p>Aplikasi untuk memanajemen barang masuk dan keluar yang dibuat dengan php native dan mysql</p>
-        </div>
-        <div class="card">
-          <img
-            src="/images/sistem-bimbingan.png"
-            alt="Sistem Bimbingan"
-          />
-          <h3>Sistem Bimbingan Tugas AKhir</h3>
-          <p>Siste ini saya buat untuk mempermudah proses bimbingan tugas akhir dengan dosen yang dibuat menggunakan laravel dan liveweire</p>
+    <section id="portfolio" class="py-5 bg-light text-center">
+      <div class="container">
+        <h2 class="text-primary fw-bold mb-4">Portofolio</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+              <img
+                src="images/finance-tracker.png"
+                class="card-img-top"
+                alt="Finance Tracker"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Aplikasi Finance Tracker</h5>
+                <p class="card-text">
+                  Web aplikasi untuk mengelola keuangan dengan Python, Flask,
+                  Tailwind CSS, dan SQLite.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+              <img
+                src="images/manajemen-barang.png"
+                class="card-img-top"
+                alt="Manajemen Barang"
+              />
+              <div class="card-body">
+                <h5 class="card-title">WebApp Manajemen Barang</h5>
+                <p class="card-text">
+                  Aplikasi untuk manajemen barang dengan PHP Native dan MySQL.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+              <img
+                src="images/sistem-bimbingan.png"
+                class="card-img-top"
+                alt="Sistem Bimbingan"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Sistem Bimbingan Tugas Akhir</h5>
+                <p class="card-text">
+                  Sistem untuk mempermudah bimbingan tugas akhir dengan Laravel
+                  dan Livewire.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- Modal -->
+    <div class="modal fade" id="infoModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Informasi Tambahan</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Website ini dibuat menggunakan HTML, CSS, dan Bootstrap untuk
+            memenuhi tugas Fullstack Development.
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Tutup
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer -->
-    <footer>
-      <p>© 2025 Arya Wijaya. All rights reserved.</p>
+    <footer class="bg-primary text-white text-center py-3 mt-5 shadow-sm">
+      <p class="mb-0">© 2025 Arya Wijaya. All rights reserved.</p>
     </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
