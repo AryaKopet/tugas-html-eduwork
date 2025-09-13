@@ -41,6 +41,20 @@ body {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
+/* Ubah warna background icon carousel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.6); /* hitam transparan */
+  border-radius: 50%;
+  background-size: 50%, 50%;
+}
+
+/* Hover lebih jelas */
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
 /* Responsiveness */
 @media (max-width: 768px) {
   .hero-text h1 {
