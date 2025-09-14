@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katalog Produk</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cdn-icons-png.flaticon.com/512/263/263142.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cdn-icons-png.flaticon.com/512/263/263142.png"
+    />
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        text-align: center;
+        padding: 2rem;
+        background: #4a90e2;
+        color: white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .filter {
+        text-align: center;
+        margin: 1.5rem 0;
+      }
+
+      .filter button {
+        background: #4a90e2;
+        border: none;
+        color: white;
+        padding: 0.7rem 1.2rem;
+        margin: 0.3rem;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .filter button:hover {
+        background: #357abd;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.2s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+
+      .card-body {
+        padding: 1rem;
+      }
+
+      .card-body h3 {
+        margin: 0.3rem 0;
+        font-size: 1.2rem;
+        color: #333;
+      }
+
+      .card-body p {
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      .price {
+        font-weight: bold;
+        color: #4a90e2;
+        margin-top: 0.5rem;
+        display: block;
+      }
+
+      footer {
+        text-align: center;
+        padding: 1rem;
+        background: #4a90e2;
+        color: white;
+        margin-top: 2rem;
+        box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1><i class="fas fa-shopping-cart"></i> Katalog Produk</h1>
+      <p>Pilih kategori untuk memfilter produk</p>
+    </header>
+
+    <div class="filter">
+      <button onclick="filterProduk('all')">Semua</button>
+      <button onclick="filterProduk('Elektronik')">Elektronik</button>
+      <button onclick="filterProduk('Pakaian')">Pakaian</button>
+      <button onclick="filterProduk('Buku')">Buku</button>
+      <button onclick="filterProduk('Makanan')">Makanan</button>
+    </div>
+
+    <div class="container" id="produk-container"></div>
+
+    <footer>
+      <p>&copy; 2025 Katalog Produk by Arya Wijaya | All Right Reserved.</p>
+    </footer>
+
+    <script>
+      const produk = [
+        // Elektronik
+        {
+          nama: "MacBook Pro",
+          harga: "Rp 24.000.000",
+          deskripsi: "Laptop performa tinggi.",
+          gambar:
+            "https://images.macrumors.com/t/uGXeE4rDp9V2kVhLTfQtpvF1fag=/1600x0/article-new/2025/03/Apple-MacBook-Air-hero.jpg",
+          kategori: "Elektronik",
+        },
+        {
+          nama: "IPhone 16 Pro Max",
+          harga: "Rp 18.000.000",
+          deskripsi: "HP terbaru dari Apple.",
+          gambar:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQInzI69QTfhKGZZJSTKjbTAdI4ZeJ5fhSBBw&s",
+          kategori: "Elektronik",
+        },
+        {
+          nama: "Galaxy S25 Ultra",
+          harga: "Rp 22.999.000",
+          deskripsi: "Produk samsung terbaik.",
+          gambar:
+            "https://images.samsung.com/id/smartphones/galaxy-s25-ultra/buy/product_color_silverBlue_PC.png",
+          kategori: "Elektronik",
+        },
+        {
+          nama: "Apple Watch Ultra 2",
+          harga: "Rp 15.659.000",
+          deskripsi: "Jam pintar elegan.",
+          gambar:
+            "https://media.dinomarket.com/docs/imgTD/2023-12/Apple_Watch_Ultra_2_GPS_Cellular_Blue_Ocean_Band_1_111223181258_ll.jpg.jpg",
+          kategori: "Elektronik",
+        },
+        {
+          nama: "Sonny Alpa 7",
+          harga: "Rp 8.000.000",
+          deskripsi: "Hasil foto profesional.",
+          gambar:
+            "https://jakartacamera.com/wp-content/uploads/2022/02/sonya7mkiiikit2870mm.jpg",
+          kategori: "Elektronik",
+        },
+
+        // Pakaian
+        {
+          nama: "Kaos Polos Hitam",
+          harga: "Rp 100.000",
+          deskripsi: "Bahan adem dan nyaman.",
+          gambar:
+            "https://img.lazcdn.com/g/ff/kf/S3464d0f69a4c4808b9c65a216abb34d4A.jpg_720x720q80.jpg",
+          kategori: "Pakaian",
+        },
+        {
+          nama: "Jaket Hoodie",
+          harga: "Rp 250.000",
+          deskripsi: "Hangat dan stylish.",
+          gambar:
+            "https://ae01.alicdn.com/kf/S3b3220fa8d5e45718bcc66d206c13652r.jpg",
+          kategori: "Pakaian",
+        },
+        {
+          nama: "Celana Jeans",
+          harga: "Rp 300.000",
+          deskripsi: "Kualitas premium.",
+          gambar:
+            "https://down-id.img.susercontent.com/file/97dde8e47ca46f68495746dd808405c0",
+          kategori: "Pakaian",
+        },
+        {
+          nama: "Sepatu Sneakers",
+          harga: "Rp 400.000",
+          deskripsi: "Cocok untuk casual.",
+          gambar:
+            "https://www.resellerdropship.com/media/uploads/products/21239.1.jpg",
+          kategori: "Pakaian",
+        },
+        {
+          nama: "Topi",
+          harga: "Rp 150.000",
+          deskripsi: "Sporty look.",
+          gambar:
+            "https://cardinal.co.id/cdn/shop/files/EDTDI00431X_04C_1.jpg?v=1756822007",
+          kategori: "Pakaian",
+        },
+
+        // Buku
+        {
+          nama: "Novel Romantis",
+          harga: "Rp 90.000",
+          deskripsi: "Kisah cinta menyentuh.",
+          gambar:
+            "https://cdn.gramedia.com/uploads/items/9786027742420_Cheeky-Romance---Cover-Baru.jpg",
+          kategori: "Buku",
+        },
+        {
+          nama: "Buku Sains",
+          harga: "Rp 120.000",
+          deskripsi: "Ilmu pengetahuan seru.",
+          gambar:
+            "https://cdn.gramedia.com/uploads/items/9786022497301_Ensiklopedia-Sains-Usborne.jpg",
+          kategori: "Buku",
+        },
+        {
+          nama: "Komik Manga",
+          harga: "Rp 75.000",
+          deskripsi: "Cerita kartun jepang.",
+          gambar: "https://i.ebayimg.com/images/g/KUcAAOSw1DhnZOIW/s-l1200.jpg",
+          kategori: "Buku",
+        },
+        {
+          nama: "Buku Geografi",
+          harga: "Rp 300.000",
+          deskripsi: "Referensi lengkap.",
+          gambar:
+            "https://simpus.mkri.id/uploaded_files/sampul_koleksi/original/Monograf//uploadedfiles/perpustakaan/07163%20(Ensiklopedia).jpg",
+          kategori: "Buku",
+        },
+        {
+          nama: "Buku Motivasi",
+          harga: "Rp 100.000",
+          deskripsi: "Penuh inspirasi.",
+          gambar:
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//catalog-image/90/MTA-72142109/_yanita_yanita_buku_motivasi_islam_islami_boleh_kalah_asal_jangan_menyerah_novel_muslim_muslimah_syalmahat_publishing_full01_qxyamxbx.jpg",
+          kategori: "Buku",
+        },
+
+        // Makanan
+        {
+          nama: "Burger",
+          harga: "Rp 50.000",
+          deskripsi: "Ekstra daging.",
+          gambar:
+            "https://www.allrecipes.com/thmb/5JVfA7MxfTUPfRerQMdF-nGKsLY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/25473-the-perfect-basic-burger-DDMFS-4x3-56eaba3833fd4a26a82755bcd0be0c54.jpg",
+          kategori: "Makanan",
+        },
+        {
+          nama: "Pizza",
+          harga: "Rp 80.000",
+          deskripsi: "Rasa autentik Italia.",
+          gambar:
+            "https://cdn1-production-images-kly.akamaized.net/5Rgd9MT6ayaE2xEUHS3XWIzpc6w=/0x281:4653x2903/800x450/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3049433/original/093267200_1581580862-shutterstock_294636281.jpg",
+          kategori: "Makanan",
+        },
+        {
+          nama: "Sushi",
+          harga: "Rp 120.000",
+          deskripsi: "Hidangan Jepang segar.",
+          gambar:
+            "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/64EF898D-2EDD-4B47-A456-E6A7D137AC91/Derivates/00f76cac-64f6-4573-be4f-e604a7d99143.jpg",
+          kategori: "Makanan",
+        },
+        {
+          nama: "Nasi Goreng",
+          harga: "Rp 40.000",
+          deskripsi: "Menu khas Indonesia.",
+          gambar:
+            "https://asset.kompas.com/crops/VcgvggZKE2VHqIAUp1pyHFXXYCs=/202x66:1000x599/1200x800/data/photo/2023/05/07/6456a450d2edd.jpg",
+          kategori: "Makanan",
+        },
+        {
+          nama: "Steak",
+          harga: "Rp 350.000",
+          deskripsi: "Daging premium juicy.",
+          gambar:
+            "https://image.idntimes.com/post/20240928/steak-c523f7dbeb58c47612526136de02e286.jpg",
+          kategori: "Makanan",
+        },
+      ];
+
+      const container = document.getElementById("produk-container");
+
+      function tampilkanProduk(data) {
+        container.innerHTML = "";
+        for (let i = 0; i < data.length; i++) {
+          const card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `
+          <img src="${data[i].gambar}" alt="${data[i].nama}">
+          <div class="card-body">
+            <h3>${data[i].nama}</h3>
+            <p>${data[i].deskripsi}</p>
+            <span class="price">${data[i].harga}</span>
+          </div>
+        `;
+          container.appendChild(card);
+        }
+      }
+
+      function filterProduk(kategori) {
+        if (kategori === "all") {
+          tampilkanProduk(produk);
+        } else {
+          const hasil = produk.filter((item) => item.kategori === kategori);
+          tampilkanProduk(hasil);
+        }
+      }
+
+      // tampilkan semua saat awal
+      tampilkanProduk(produk);
+    </script>
+  </body>
+</html>
