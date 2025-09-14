@@ -8,6 +8,16 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cdn-icons-png.flaticon.com/512/263/263142.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cdn-icons-png.flaticon.com/512/263/263142.png"
+    />
     <style>
       body {
         font-family: "Segoe UI", sans-serif;
@@ -92,6 +102,15 @@
         margin-top: 0.5rem;
         display: block;
       }
+
+      footer {
+        text-align: center;
+        padding: 1rem;
+        background: #4a90e2;
+        color: white;
+        margin-top: 2rem;
+        box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+      }
     </style>
   </head>
   <body>
@@ -110,79 +129,93 @@
 
     <div class="container" id="produk-container"></div>
 
+    <footer>
+      <p>&copy; 2025 Katalog Produk by Arya Wijaya | All Right Reserved.</p>
+    </footer>
+
     <script>
       const produk = [
         // Elektronik
         {
-          nama: "Laptop X",
-          harga: "Rp 10.000.000",
+          nama: "MacBook Pro",
+          harga: "Rp 24.000.000",
           deskripsi: "Laptop performa tinggi.",
-          gambar: "https://picsum.photos/300/200?random=1",
+          gambar:
+            "https://images.macrumors.com/t/uGXeE4rDp9V2kVhLTfQtpvF1fag=/1600x0/article-new/2025/03/Apple-MacBook-Air-hero.jpg",
           kategori: "Elektronik",
         },
         {
-          nama: "Smartphone Y",
-          harga: "Rp 5.000.000",
-          deskripsi: "HP canggih terbaru.",
-          gambar: "https://picsum.photos/300/200?random=2",
+          nama: "IPhone 16 Pro Max",
+          harga: "Rp 18.000.000",
+          deskripsi: "HP terbaru dari Apple.",
+          gambar:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQInzI69QTfhKGZZJSTKjbTAdI4ZeJ5fhSBBw&s",
           kategori: "Elektronik",
         },
         {
-          nama: "Headphone Z",
-          harga: "Rp 1.200.000",
-          deskripsi: "Suara jernih.",
-          gambar: "https://picsum.photos/300/200?random=3",
+          nama: "Galaxy S25 Ultra",
+          harga: "Rp 22.999.000",
+          deskripsi: "Produk samsung terbaik.",
+          gambar:
+            "https://images.samsung.com/id/smartphones/galaxy-s25-ultra/buy/product_color_silverBlue_PC.png",
           kategori: "Elektronik",
         },
         {
-          nama: "Smartwatch A",
-          harga: "Rp 2.000.000",
+          nama: "Apple Watch Ultra 2",
+          harga: "Rp 15.659.000",
           deskripsi: "Jam pintar elegan.",
-          gambar: "https://picsum.photos/300/200?random=4",
+          gambar:
+            "https://media.dinomarket.com/docs/imgTD/2023-12/Apple_Watch_Ultra_2_GPS_Cellular_Blue_Ocean_Band_1_111223181258_ll.jpg.jpg",
           kategori: "Elektronik",
         },
         {
-          nama: "Kamera B",
+          nama: "Sonny Alpa 7",
           harga: "Rp 8.000.000",
           deskripsi: "Hasil foto profesional.",
-          gambar: "https://picsum.photos/300/200?random=5",
+          gambar:
+            "https://jakartacamera.com/wp-content/uploads/2022/02/sonya7mkiiikit2870mm.jpg",
           kategori: "Elektronik",
         },
 
         // Pakaian
         {
-          nama: "Kaos Polos",
+          nama: "Kaos Polos Hitam",
           harga: "Rp 100.000",
           deskripsi: "Bahan adem dan nyaman.",
-          gambar: "https://picsum.photos/300/200?random=6",
+          gambar:
+            "https://img.lazcdn.com/g/ff/kf/S3464d0f69a4c4808b9c65a216abb34d4A.jpg_720x720q80.jpg",
           kategori: "Pakaian",
         },
         {
           nama: "Jaket Hoodie",
           harga: "Rp 250.000",
           deskripsi: "Hangat dan stylish.",
-          gambar: "https://picsum.photos/300/200?random=7",
+          gambar:
+            "https://ae01.alicdn.com/kf/S3b3220fa8d5e45718bcc66d206c13652r.jpg",
           kategori: "Pakaian",
         },
         {
           nama: "Celana Jeans",
           harga: "Rp 300.000",
           deskripsi: "Kualitas premium.",
-          gambar: "https://picsum.photos/300/200?random=8",
+          gambar:
+            "https://down-id.img.susercontent.com/file/97dde8e47ca46f68495746dd808405c0",
           kategori: "Pakaian",
         },
         {
           nama: "Sepatu Sneakers",
           harga: "Rp 400.000",
           deskripsi: "Cocok untuk casual.",
-          gambar: "https://picsum.photos/300/200?random=9",
+          gambar:
+            "https://www.resellerdropship.com/media/uploads/products/21239.1.jpg",
           kategori: "Pakaian",
         },
         {
-          nama: "Topi Baseball",
+          nama: "Topi",
           harga: "Rp 150.000",
           deskripsi: "Sporty look.",
-          gambar: "https://picsum.photos/300/200?random=10",
+          gambar:
+            "https://cardinal.co.id/cdn/shop/files/EDTDI00431X_04C_1.jpg?v=1756822007",
           kategori: "Pakaian",
         },
 
@@ -191,35 +224,39 @@
           nama: "Novel Romantis",
           harga: "Rp 90.000",
           deskripsi: "Kisah cinta menyentuh.",
-          gambar: "https://picsum.photos/300/200?random=11",
+          gambar:
+            "https://cdn.gramedia.com/uploads/items/9786027742420_Cheeky-Romance---Cover-Baru.jpg",
           kategori: "Buku",
         },
         {
           nama: "Buku Sains",
           harga: "Rp 120.000",
           deskripsi: "Ilmu pengetahuan seru.",
-          gambar: "https://picsum.photos/300/200?random=12",
+          gambar:
+            "https://cdn.gramedia.com/uploads/items/9786022497301_Ensiklopedia-Sains-Usborne.jpg",
           kategori: "Buku",
         },
         {
           nama: "Komik Manga",
           harga: "Rp 75.000",
-          deskripsi: "Cerita seru bergambar.",
-          gambar: "https://picsum.photos/300/200?random=13",
+          deskripsi: "Cerita kartun jepang.",
+          gambar: "https://i.ebayimg.com/images/g/KUcAAOSw1DhnZOIW/s-l1200.jpg",
           kategori: "Buku",
         },
         {
-          nama: "Ensiklopedia",
+          nama: "Buku Geografi",
           harga: "Rp 300.000",
           deskripsi: "Referensi lengkap.",
-          gambar: "https://picsum.photos/300/200?random=14",
+          gambar:
+            "https://simpus.mkri.id/uploaded_files/sampul_koleksi/original/Monograf//uploadedfiles/perpustakaan/07163%20(Ensiklopedia).jpg",
           kategori: "Buku",
         },
         {
           nama: "Buku Motivasi",
           harga: "Rp 100.000",
           deskripsi: "Penuh inspirasi.",
-          gambar: "https://picsum.photos/300/200?random=15",
+          gambar:
+            "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//catalog-image/90/MTA-72142109/_yanita_yanita_buku_motivasi_islam_islami_boleh_kalah_asal_jangan_menyerah_novel_muslim_muslimah_syalmahat_publishing_full01_qxyamxbx.jpg",
           kategori: "Buku",
         },
 
@@ -227,36 +264,41 @@
         {
           nama: "Burger",
           harga: "Rp 50.000",
-          deskripsi: "Lezat dan mengenyangkan.",
-          gambar: "https://picsum.photos/300/200?random=16",
+          deskripsi: "Ekstra daging.",
+          gambar:
+            "https://www.allrecipes.com/thmb/5JVfA7MxfTUPfRerQMdF-nGKsLY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/25473-the-perfect-basic-burger-DDMFS-4x3-56eaba3833fd4a26a82755bcd0be0c54.jpg",
           kategori: "Makanan",
         },
         {
           nama: "Pizza",
           harga: "Rp 80.000",
           deskripsi: "Rasa autentik Italia.",
-          gambar: "https://picsum.photos/300/200?random=17",
+          gambar:
+            "https://cdn1-production-images-kly.akamaized.net/5Rgd9MT6ayaE2xEUHS3XWIzpc6w=/0x281:4653x2903/800x450/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3049433/original/093267200_1581580862-shutterstock_294636281.jpg",
           kategori: "Makanan",
         },
         {
           nama: "Sushi",
           harga: "Rp 120.000",
           deskripsi: "Hidangan Jepang segar.",
-          gambar: "https://picsum.photos/300/200?random=18",
+          gambar:
+            "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/64EF898D-2EDD-4B47-A456-E6A7D137AC91/Derivates/00f76cac-64f6-4573-be4f-e604a7d99143.jpg",
           kategori: "Makanan",
         },
         {
           nama: "Nasi Goreng",
           harga: "Rp 40.000",
           deskripsi: "Menu khas Indonesia.",
-          gambar: "https://picsum.photos/300/200?random=19",
+          gambar:
+            "https://asset.kompas.com/crops/VcgvggZKE2VHqIAUp1pyHFXXYCs=/202x66:1000x599/1200x800/data/photo/2023/05/07/6456a450d2edd.jpg",
           kategori: "Makanan",
         },
         {
           nama: "Steak",
-          harga: "Rp 150.000",
+          harga: "Rp 350.000",
           deskripsi: "Daging premium juicy.",
-          gambar: "https://picsum.photos/300/200?random=20",
+          gambar:
+            "https://image.idntimes.com/post/20240928/steak-c523f7dbeb58c47612526136de02e286.jpg",
           kategori: "Makanan",
         },
       ];
