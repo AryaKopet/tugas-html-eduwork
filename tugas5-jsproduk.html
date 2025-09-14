@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katalog Produk</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        text-align: center;
+        padding: 2rem;
+        background: #4a90e2;
+        color: white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .filter {
+        text-align: center;
+        margin: 1.5rem 0;
+      }
+
+      .filter button {
+        background: #4a90e2;
+        border: none;
+        color: white;
+        padding: 0.7rem 1.2rem;
+        margin: 0.3rem;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .filter button:hover {
+        background: #357abd;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.2s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+
+      .card-body {
+        padding: 1rem;
+      }
+
+      .card-body h3 {
+        margin: 0.3rem 0;
+        font-size: 1.2rem;
+        color: #333;
+      }
+
+      .card-body p {
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      .price {
+        font-weight: bold;
+        color: #4a90e2;
+        margin-top: 0.5rem;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Katalog Produk</h1>
+      <p>Pilih kategori untuk memfilter produk</p>
+    </header>
+
+    <div class="filter">
+      <button onclick="filterProduk('all')">Semua</button>
+      <button onclick="filterProduk('Elektronik')">Elektronik</button>
+      <button onclick="filterProduk('Pakaian')">Pakaian</button>
+      <button onclick="filterProduk('Buku')">Buku</button>
+      <button onclick="filterProduk('Makanan')">Makanan</button>
+    </div>
+
+    <div class="container" id="produk-container"></div>
+
+    <script>
+      const produk = [
+        // Elektronik
+        {
+          nama: "Laptop X",
+          harga: "Rp 10.000.000",
+          deskripsi: "Laptop performa tinggi.",
+          gambar: "https://picsum.photos/300/200?random=1",
+          kategori: "Elektronik",
+        },
+        {
+          nama: "Smartphone Y",
+          harga: "Rp 5.000.000",
+          deskripsi: "HP canggih terbaru.",
+          gambar: "https://picsum.photos/300/200?random=2",
+          kategori: "Elektronik",
+        },
+        {
+          nama: "Headphone Z",
+          harga: "Rp 1.200.000",
+          deskripsi: "Suara jernih.",
+          gambar: "https://picsum.photos/300/200?random=3",
+          kategori: "Elektronik",
+        },
+        {
+          nama: "Smartwatch A",
+          harga: "Rp 2.000.000",
+          deskripsi: "Jam pintar elegan.",
+          gambar: "https://picsum.photos/300/200?random=4",
+          kategori: "Elektronik",
+        },
+        {
+          nama: "Kamera B",
+          harga: "Rp 8.000.000",
+          deskripsi: "Hasil foto profesional.",
+          gambar: "https://picsum.photos/300/200?random=5",
+          kategori: "Elektronik",
+        },
+
+        // Pakaian
+        {
+          nama: "Kaos Polos",
+          harga: "Rp 100.000",
+          deskripsi: "Bahan adem dan nyaman.",
+          gambar: "https://picsum.photos/300/200?random=6",
+          kategori: "Pakaian",
+        },
+        {
+          nama: "Jaket Hoodie",
+          harga: "Rp 250.000",
+          deskripsi: "Hangat dan stylish.",
+          gambar: "https://picsum.photos/300/200?random=7",
+          kategori: "Pakaian",
+        },
+        {
+          nama: "Celana Jeans",
+          harga: "Rp 300.000",
+          deskripsi: "Kualitas premium.",
+          gambar: "https://picsum.photos/300/200?random=8",
+          kategori: "Pakaian",
+        },
+        {
+          nama: "Sepatu Sneakers",
+          harga: "Rp 400.000",
+          deskripsi: "Cocok untuk casual.",
+          gambar: "https://picsum.photos/300/200?random=9",
+          kategori: "Pakaian",
+        },
+        {
+          nama: "Topi Baseball",
+          harga: "Rp 150.000",
+          deskripsi: "Sporty look.",
+          gambar: "https://picsum.photos/300/200?random=10",
+          kategori: "Pakaian",
+        },
+
+        // Buku
+        {
+          nama: "Novel Romantis",
+          harga: "Rp 90.000",
+          deskripsi: "Kisah cinta menyentuh.",
+          gambar: "https://picsum.photos/300/200?random=11",
+          kategori: "Buku",
+        },
+        {
+          nama: "Buku Sains",
+          harga: "Rp 120.000",
+          deskripsi: "Ilmu pengetahuan seru.",
+          gambar: "https://picsum.photos/300/200?random=12",
+          kategori: "Buku",
+        },
+        {
+          nama: "Komik Manga",
+          harga: "Rp 75.000",
+          deskripsi: "Cerita seru bergambar.",
+          gambar: "https://picsum.photos/300/200?random=13",
+          kategori: "Buku",
+        },
+        {
+          nama: "Ensiklopedia",
+          harga: "Rp 300.000",
+          deskripsi: "Referensi lengkap.",
+          gambar: "https://picsum.photos/300/200?random=14",
+          kategori: "Buku",
+        },
+        {
+          nama: "Buku Motivasi",
+          harga: "Rp 100.000",
+          deskripsi: "Penuh inspirasi.",
+          gambar: "https://picsum.photos/300/200?random=15",
+          kategori: "Buku",
+        },
+
+        // Makanan
+        {
+          nama: "Burger",
+          harga: "Rp 50.000",
+          deskripsi: "Lezat dan mengenyangkan.",
+          gambar: "https://picsum.photos/300/200?random=16",
+          kategori: "Makanan",
+        },
+        {
+          nama: "Pizza",
+          harga: "Rp 80.000",
+          deskripsi: "Rasa autentik Italia.",
+          gambar: "https://picsum.photos/300/200?random=17",
+          kategori: "Makanan",
+        },
+        {
+          nama: "Sushi",
+          harga: "Rp 120.000",
+          deskripsi: "Hidangan Jepang segar.",
+          gambar: "https://picsum.photos/300/200?random=18",
+          kategori: "Makanan",
+        },
+        {
+          nama: "Nasi Goreng",
+          harga: "Rp 40.000",
+          deskripsi: "Menu khas Indonesia.",
+          gambar: "https://picsum.photos/300/200?random=19",
+          kategori: "Makanan",
+        },
+        {
+          nama: "Steak",
+          harga: "Rp 150.000",
+          deskripsi: "Daging premium juicy.",
+          gambar: "https://picsum.photos/300/200?random=20",
+          kategori: "Makanan",
+        },
+      ];
+
+      const container = document.getElementById("produk-container");
+
+      function tampilkanProduk(data) {
+        container.innerHTML = "";
+        for (let i = 0; i < data.length; i++) {
+          const card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `
+          <img src="${data[i].gambar}" alt="${data[i].nama}">
+          <div class="card-body">
+            <h3>${data[i].nama}</h3>
+            <p>${data[i].deskripsi}</p>
+            <span class="price">${data[i].harga}</span>
+          </div>
+        `;
+          container.appendChild(card);
+        }
+      }
+
+      function filterProduk(kategori) {
+        if (kategori === "all") {
+          tampilkanProduk(produk);
+        } else {
+          const hasil = produk.filter((item) => item.kategori === kategori);
+          tampilkanProduk(hasil);
+        }
+      }
+
+      // tampilkan semua saat awal
+      tampilkanProduk(produk);
+    </script>
+  </body>
+</html>
