@@ -1,0 +1,82 @@
+<html>
+  <p onclick="ubahTeks()">Hello World</p>
+  <form onsubmit="return validateName(event)">
+    <input type="text" id="input" placeholder="Masukkan nama anda" />
+    <button type="submit">Submit</button>
+  </form>
+</html>
+<script>
+  function ubahTeks() {
+    document.querySelector("p").innerHTML = "Hello Diddy";
+  }
+
+  const validateName = (e) => {
+    e.preventDefault(); // cegah reload bawaan form
+    const input = document.getElementById("input");
+    const name = input.value.trim();
+
+    if (name === "") {
+      alert("Masukkan nama terlebih dahulu.");
+      return false;
+    }
+
+    alert(`Selamat datang ${name}`);
+    input.value = ""; // kosongkan input setelah submit
+    return true;
+  };
+
+  // Komentar pertama
+  /* Komentar kedua
+    komentar ini dalam dua baris*/
+
+  var variabel1 = 1;
+  let variabelLet = 2;
+  const variableConst = 3;
+
+  var variableAngka = 9;
+  let variableString = "Arya Wijaya";
+  let variableBoolean = true;
+  var kosong; //belum memiliki isi karena hanya variable kosongan atau undefined (tidak terdefinisikan)
+  var variableNull = null;
+
+  let angka1 = 3;
+  let angka2 = 5;
+  let hasil = angka1 + angka2;
+
+  console.log(hasil);
+
+  // pencabangan atau kondisi if statement
+  if (hasil > 10) {
+    console.log("Hasil lebih besar dari 10");
+  } else {
+    console.log("Hasil lebih kecil dari 10");
+  }
+
+  // perulangan dengan for
+  for (let i = 0; i < 5; i++) {
+    console.log(`ini perulangan ke ${i + 1}`); // i+1 untuk mengindari perulangan menampilkan angka 0 atau index pertama
+  }
+
+  // fungsi reguler dengan parameter didalam variable
+  const nama = function greet(name) {
+    return "Hello, " + name;
+  };
+  console.log(nama("Arya"));
+
+  // fungsi dengan arrow function didalam variable
+  const greet = (name) => {
+    return "Hello, " + name;
+  };
+
+  console.log(greet("Arya"));
+
+  //array data buah
+  let fruits = ["apple", "banana", "orange"];
+  fruits.push("mango"); // untuk menamakan data pada array
+  console.log(fruits);
+
+  // perulangan print menggunakan data dari array
+  for (f = 0; f < fruits.length; f++) {
+    console.log(`ini adalah buah ${fruits[f]}`);
+  }
+</script>
